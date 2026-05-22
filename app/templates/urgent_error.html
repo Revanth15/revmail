@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <body style="margin:0;background:#f6f7f9;font-family:Arial,Helvetica,sans-serif;color:#202124;">
+    <div style="max-width:720px;margin:0 auto;padding:24px;">
+      <div style="background:#b42318;color:#fff;padding:18px 22px;border-radius:8px 8px 0 0;">
+        <div style="font-size:13px;text-transform:uppercase;letter-spacing:.06em;">Urgent incident alert</div>
+        <h1 style="margin:8px 0 0;font-size:24px;line-height:1.25;">{{ title }}</h1>
+      </div>
+      <div style="background:#fff;border:1px solid #e5e7eb;border-top:0;padding:22px;border-radius:0 0 8px 8px;">
+        <p style="margin:0 0 14px;font-size:16px;"><strong>{{ app_name }}</strong></p>
+        <p style="margin:0 0 18px;">
+          <span style="display:inline-block;background:#fee4e2;color:#b42318;border:1px solid #fecdca;border-radius:999px;padding:4px 10px;font-size:13px;font-weight:bold;">{{ severity }}</span>
+          <span style="color:#667085;margin-left:8px;">{{ environment }}</span>
+        </p>
+        <p style="font-size:16px;line-height:1.55;margin:0 0 22px;">{{ message }}</p>
+        <table style="width:100%;border-collapse:collapse;font-size:14px;margin-bottom:22px;">
+          <tr><td style="padding:8px;border-top:1px solid #eaecf0;color:#667085;">Timestamp</td><td style="padding:8px;border-top:1px solid #eaecf0;">{{ timestamp }}</td></tr>
+          {% if route %}<tr><td style="padding:8px;border-top:1px solid #eaecf0;color:#667085;">Route</td><td style="padding:8px;border-top:1px solid #eaecf0;">{{ route }}</td></tr>{% endif %}
+          {% if user_id %}<tr><td style="padding:8px;border-top:1px solid #eaecf0;color:#667085;">User ID</td><td style="padding:8px;border-top:1px solid #eaecf0;">{{ user_id }}</td></tr>{% endif %}
+          {% if device_id %}<tr><td style="padding:8px;border-top:1px solid #eaecf0;color:#667085;">Device ID</td><td style="padding:8px;border-top:1px solid #eaecf0;">{{ device_id }}</td></tr>{% endif %}
+          {% if request_id %}<tr><td style="padding:8px;border-top:1px solid #eaecf0;color:#667085;">Request ID</td><td style="padding:8px;border-top:1px solid #eaecf0;">{{ request_id }}</td></tr>{% endif %}
+        </table>
+        {% if extra %}
+        <h2 style="font-size:16px;margin:0 0 8px;">Extra</h2>
+        <pre style="white-space:pre-wrap;background:#f9fafb;border:1px solid #eaecf0;border-radius:6px;padding:12px;font-size:13px;line-height:1.45;">{{ extra }}</pre>
+        {% endif %}
+        {% if stack_trace %}
+        <h2 style="font-size:16px;margin:18px 0 8px;">Stack trace</h2>
+        <pre style="white-space:pre-wrap;background:#111827;color:#f9fafb;border-radius:6px;padding:14px;font-size:12px;line-height:1.45;overflow:auto;">{{ stack_trace }}</pre>
+        {% endif %}
+        <p style="border-top:1px solid #eaecf0;margin:22px 0 0;padding-top:14px;color:#667085;font-size:12px;">Sent by Email Gateway.</p>
+      </div>
+    </div>
+  </body>
+</html>

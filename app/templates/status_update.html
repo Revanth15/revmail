@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <body style="margin:0;background:#f6f7f9;font-family:Arial,Helvetica,sans-serif;color:#202124;">
+    <div style="max-width:680px;margin:0 auto;padding:24px;">
+      <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:24px;">
+        <p style="margin:0 0 8px;color:#667085;font-size:14px;">{{ app_name }}</p>
+        <h1 style="margin:0 0 14px;font-size:24px;line-height:1.25;">{{ title }}</h1>
+        {% if status %}
+        <p style="margin:0 0 18px;"><span style="display:inline-block;background:#ecfdf3;color:#027a48;border:1px solid #abefc6;border-radius:999px;padding:4px 10px;font-size:13px;font-weight:bold;">{{ status }}</span></p>
+        {% endif %}
+        <p style="font-size:16px;line-height:1.55;margin:0 0 18px;">{{ message }}</p>
+        <p style="margin:0 0 18px;color:#667085;font-size:14px;">{{ timestamp }}</p>
+        {% if details %}
+        <div style="background:#f9fafb;border:1px solid #eaecf0;border-radius:6px;padding:14px;margin-bottom:20px;line-height:1.5;">{{ details }}</div>
+        {% endif %}
+        {% if action_url %}
+        <p style="margin:22px 0;">
+          <a href="{{ action_url }}" style="display:inline-block;background:#175cd3;color:#fff;text-decoration:none;border-radius:6px;padding:11px 16px;font-weight:bold;">{{ action_label or "View details" }}</a>
+        </p>
+        {% endif %}
+        <p style="border-top:1px solid #eaecf0;margin:22px 0 0;padding-top:14px;color:#667085;font-size:12px;">Sent by Email Gateway.</p>
+      </div>
+    </div>
+  </body>
+</html>
